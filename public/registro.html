@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="CSS/StyleRegistrarse.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="wrapper fadeInDown" style="background-color: white">
+      <div id="formContent">
+        <div class="fadeIn first">
+          <img src="Imagenes/logo.png" id="icon" alt="User Icon" />
+        </div>
+
+        <form id="registroF">
+          <input
+            type="text"
+            id="nombre"
+            class="fadeIn second"
+            name="nombre"
+            placeholder="Nombres"
+          />
+          <input
+            type="text"
+            id="correo"
+            class="fadeIn second"
+            name="correo"
+            placeholder="Email"
+          />
+          <input
+            type="text"
+            id="password"
+            class="fadeIn third"
+            name="password"
+            placeholder="Password"
+          />
+          <input
+            type="text"
+            id="telefono"
+            class="fadeIn second"
+            name="telefono"
+            placeholder="Telefono"
+          />
+          <input
+            type="text"
+            id="Direccion"
+            class="fadeIn second"
+            name="Direccion"
+            placeholder="Dirección"
+          />
+          <input type="submit" class="fadeIn fourth" value="Log In" />
+        </form>
+        <div id="message"></div>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("registroF");
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        FileList;
+        sendData();
+      });
+      function sendData() {
+        const url = "https://moshishop.up.railway.app/usuarios/registro"; // reemplazar con la URL de tu API
+        const data = {
+          nombre: document.getElementById("nombre").value,
+          correo: document.getElementById("correo").value,
+          password: document.getElementById("password").value,
+          telefono: document.getElementById("telefono").value,
+          Direccion: document.getElementById("Direccion").value,
+        };
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+        
+        fetch(url, options)
+          .then((response) => response.json())
+          .then((data) => {
+        
+              console.log("Respuesta del servidor:", data);
+
+            location.href = './login.html';
+            
+            // hacer algo con la respuesta del servidor, como mostrar un mensaje al usuario
+          })
+          .catch((error) => console.error("Error al enviar los datos:", error));
+      }
+
+      
+
+    </script>
+  </body>
+</html>
