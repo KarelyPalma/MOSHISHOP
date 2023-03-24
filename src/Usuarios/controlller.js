@@ -4,9 +4,7 @@ import { Usuarios } from "./model.js";
 
 export const login = async (req, res) => {
   const { correo, password } = req.body;
-
   console.log(req.body);
-
   try {
     const usuario = await Usuarios.findOne({
       where: { [Op.and]: [{ correo }, { password }] },
