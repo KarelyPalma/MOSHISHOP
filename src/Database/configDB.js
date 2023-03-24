@@ -5,7 +5,7 @@ import { Sequelize } from "sequelize";
    //  dialect: 'mysql'
  //});
 
-export const sequelize = new Sequelize('mysql://root:2pIUonexQzPb6fZ01SlK@containers-us-west-44.railway.app:7289/railway');
+export const sequelize = new Sequelize('mysql://root:UawLMthooghnjnbqDmb8@containers-us-west-192.railway.app:5617/railway');
 
 /*const Usuarios = sequelize.define('Usuarios', {
     // define las propiedades de Usuario
